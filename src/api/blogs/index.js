@@ -46,6 +46,16 @@ blogsRouter.get("/:blogId", async (req, res, next) => {
 
 blogsRouter.put("/:blogId", async (req, res, next) => {
   try {
+    const updatedBlog = await BlogsModel.findByIdAndUpdate(
+      req.params.blogId,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (updatedBlog) {
+      res.send(updatedBlog);
+    } else {
+      next(createHttpError(404, `Blog with ID ${req.params.blogId} not found`));
+    }
   } catch (error) {
     next(error);
   }
@@ -53,6 +63,12 @@ blogsRouter.put("/:blogId", async (req, res, next) => {
 
 blogsRouter.delete("/:blogId", async (req, res, next) => {
   try {
+    const deletedBlog = await BlogsModel.findByIdAndDelete(req.params.blogId);
+    if (deletedBlog) {
+      res.status(204).send();
+    } else {
+      next(createHttpError(404, `Blog with ID ${req.params.blogId} not found`));
+    }
   } catch (error) {
     next(error);
   }

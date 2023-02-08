@@ -13,7 +13,7 @@ const blogsSchema = new Schema(
       value: { type: Number, required: true },
       unit: { type: String, required: true },
     },
-    //     author: { authorsSchema },
+    author: [{ type: Schema.Types.ObjectId, ref: "Authors", required: true }],
   },
   { timestamps: true }
   //MongoDB handles automatically
