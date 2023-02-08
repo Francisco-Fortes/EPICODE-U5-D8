@@ -1,0 +1,34 @@
+{
+  "name": "epicode-u5-d8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -r dotenv/config ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Francisco-Fortes/EPICODE-U5-D8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-list-endpoints": "^6.0.0",
+    "express-validators": "^1.0.4",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.8.3"
+  },
+  "bugs": {
+    "url": "https://github.com/Francisco-Fortes/EPICODE-U5-D8/issues"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  },
+  "homepage": "https://github.com/Francisco-Fortes/EPICODE-U5-D8#readme"
+}
