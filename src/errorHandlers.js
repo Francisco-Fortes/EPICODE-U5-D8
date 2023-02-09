@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 
+export const unauthorizedErrorHandler = (err, req, res, next) => {
+  if (err.status === 401) {
+    res.status(401).send({ success: false, message: err.message });
+  } else {
+    next(err);
+  }
+};
+
 export const badRequestErrorHandler = (err, req, res, next) => {
   //We could also write it like this:
   if (err.status === 400 || err instanceof mongoose.Error.ValidationError) {
